@@ -2,6 +2,7 @@ import time
 import base64
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import datetime as dt
 import streamlit as st
 from io import BytesIO
@@ -94,6 +95,8 @@ if arquivo is not None:
 
         st.write('Resultado da análise:')
         st.write(df)
+
+        st.bar_chart(df['Classe'].value_counts())
 
         # botão para exportar 
         csv = df.to_csv('analise_rfm.csv', index=False)
