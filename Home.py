@@ -2,8 +2,7 @@ import time
 import base64
 import numpy as np
 import pandas as pd
-import datetime as dt 
-import plotly.express as px
+import datetime as dt
 import streamlit as st
 from io import BytesIO
 from PIL import Image
