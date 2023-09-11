@@ -96,7 +96,7 @@ if arquivo is not None:
         st.write(df)
 
         # botão para exportar 
-        csv = df.to_csv(index=False, encoding='utf-8')
+        csv = df.to_csv('analise_rfm.csv', index=False)
         b64 = base64.b64encode(csv.encode()).decode()
         href = f'<a href="data:file/csv,base64,{b64}" download="df.csv">Baixar Resultado CSV</a>'
         st.markdown(href, unsafe_allow_html=True)
