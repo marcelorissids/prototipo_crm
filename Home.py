@@ -15,6 +15,7 @@ def analise_rfm(df):
     df = df.drop_duplicates()
     df[df['PrecoUnit']==0].head()
     df['PrecoTotal'] = df['PrecoUnit']*df['Qtd']
+    df['PedidoData'] = pd.to_datetime(df['PedidoData'])
     dia_do_hit = df['PedidoData'].max() + dt.timedelta(days=1)
     rfm = df.groupby(['ClienteID']).agg({'PedidoData': lambda x: (dia_do_hit - x.max()).days, 'PedidoNum':'count','PrecoTotal':'sum'})
     rfm = rfm.rename(columns={'PedidoData':'Recência','PedidoNum':'Frequência','PrecoTotal':'ValorMonetário'})
@@ -94,7 +95,7 @@ if arquivo is not None:
         st.write(resultado_analise)
 
         # botão para exportar 
-        csv = resultado_analise.to_csv(index=False, encodin='utf-8')
+        csv = resultado_analise.to_csv(index=False, encoding='utf-8')
         b64 = base64.b64encode(csv.encode()).decode()
         href = f'<a href="data:file/csv,base64,{b64}" download="resultado_analise.csv">Baixar Resultado CSV</a>'
         st.markdown(href, unsafe_allow_html=True)
