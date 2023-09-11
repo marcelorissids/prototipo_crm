@@ -109,5 +109,5 @@ if arquivo is not None:
 
         # botão para exportar
         csv = df1.to_csv(index=False, sep=';', encoding='utf-8')
-        href = f'<a href="data:file/csv" download="df1.csv">Baixar Resultado CSV</a>'
+        href = f'<a href="data:file/csv;charset=uts-8,{quote(csv)}" download="df1.csv">Baixar Resultado CSV</a>'
         st.markdown(href, unsafe_allow_html=True)
