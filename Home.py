@@ -10,8 +10,6 @@ st.title('Análise RFM')
 #image_path = 'logo.png'
 image = Image.open('logo.png')
 
-st.set_page_config(page_title='Home')
-
 st.sidebar.image(image, width=120)
 
 st.sidebar.markdown('# Análise RFM')
