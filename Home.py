@@ -7,11 +7,6 @@ from PIL import Image
 
 st.title('Análise RFM')
 
-#image_path = 'logo.png'
-image = Image.open('logo.png')
-
-st.sidebar.image(image, width=120)
-
 st.sidebar.markdown('# Análise RFM')
 st.sidebar.markdown('## A melhor para seu ecommerce')
 st.sidebar.markdown("""---""")
