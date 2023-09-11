@@ -78,7 +78,7 @@ st.title('Análise RFM')
 
 
 # Upload csv
-uploaded_file = st.file_uploader('Faça o upload do seu arquivo csv',type=['csv'])
+arquivo = st.file_uploader('Faça o upload do seu arquivo csv',type=['csv'])
 
 if arquivo is not None:
     df = pd.read_csv(arquivo)
