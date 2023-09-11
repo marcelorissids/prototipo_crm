@@ -95,7 +95,7 @@ def analise_rfm(df):
 arquivo = st.file_uploader('Faça o upload do seu arquivo csv',type=['csv'])
 
 if arquivo is not None:
-    df = pd.read_csv(arquivo)
+    df = pd.read_csv(arquivo, encoding='ISO-8859-1')
     st.write('Dados carregados:')
     st.write(df)
 
