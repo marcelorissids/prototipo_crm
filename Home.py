@@ -34,6 +34,7 @@ def analise_rfm(df):
     def add_rfm(x): return str(x['R']) + str(x['F']) + str(x['M'])
     rfm['RFM_cluster'] = rfm.apply(add_rfm, axis=1)
     rfm['RFM_score'] = rfm[['R', 'F', 'M']].sum(axis=1)
+    rfm[['F', 'M']] = rfm[['F', 'M']].astype(float)
     rfm['FM_media'] = rfm[['F', 'M']].mean(axis=1).round()
     rfm = rfm.reset_index()
 
