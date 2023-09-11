@@ -7,7 +7,7 @@ import streamlit as st
 from io import BytesIO
 from PIL import Image
 
-def analise_rfm(dados):
+def analise_rfm(df):
     df.columns = ['PedidoNum', 'ProdutoCod', 'ProdutoDesc', 'Qtd', 'PedidoData', 'PrecoUnit', 'ClienteID', 'Pais']
     df.info()
     df = df[df['PedidoNum'].str[0] != 'C']
