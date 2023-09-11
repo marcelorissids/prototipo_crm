@@ -90,13 +90,13 @@ if arquivo is not None:
     # botão para realizar a analise
     if st.button('Realizar Análise'):
         with st.spinner('Realizando análise...'):
-            resultado_analise = analise_rfm(df)
+            df1 = analise_rfm(df)
 
         st.write('Resultado da análise:')
-        st.write(resultado_analise)
+        st.write(df1)
 
         # botão para exportar 
-        csv = resultado_analise.to_csv(index=False, encoding='utf-8')
+        csv = df1.to_csv(index=False, encoding='utf-8')
         b64 = base64.b64encode(csv.encode()).decode()
         href = f'<a href="data:file/csv,base64,{b64}" download="resultado_analise.csv">Baixar Resultado CSV</a>'
         st.markdown(href, unsafe_allow_html=True)
