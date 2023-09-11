@@ -108,7 +108,7 @@ if arquivo is not None:
         
 
         # botão para exportar
-        print(df1.to_csv(index=False))
+        csv = df1.to_csv(index=False)
         b64 = base64.b64encode(csv.encode()).decode()
         href = f'<a href="data:file/csv,base64,{b64}" download="df1.csv">Baixar Resultado CSV</a>'
         st.markdown(href, unsafe_allow_html=True)
