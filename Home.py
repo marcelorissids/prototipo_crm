@@ -1,7 +1,6 @@
 import base64
 import numpy as np
 import pandas as pd
-import plotly.express as px
 import datetime as dt
 import streamlit as st
 from io import BytesIO
@@ -104,9 +103,6 @@ if arquivo is not None:
 
         st.write('Resultado da análise:')
         st.write(df1)
-
-        fig = px.bar(df1['Classe'].value_counts(), x=df1['Classe'].value_counts().index, y=df1['Classe'].value_counts().values)
-        st.plotly_chart(fig)
         
         # botão para exportar 
         csv = df1.to_csv('analise_rfm.csv', index=False)
